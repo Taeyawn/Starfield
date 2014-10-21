@@ -8,6 +8,10 @@ void setup()
 		{
 			matt[i]= new OddballParticle();
 		}
+		else if(i==2)
+		{
+			matt[i] = new JumboParticle();
+		}
 		else
 		{
 			matt[i] = new NormalParticle();
@@ -86,5 +90,19 @@ class OddballParticle implements Particle
 		ellipse((float)x, (float)y, 20, 20);
 	}
 }
-
-
+class JumboParticle extends NormalParticle
+{
+	JumboParticle()
+	{
+		x=400;
+		y=400;
+		dSpeed = Math.random()*10;
+		dAngle = Math.PI*Math.random()*5;
+		partcolor = color((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256));
+	}
+	public void show()
+	{
+		fill(partcolor);
+		ellipse((float)x, (float)y, 40, 40);
+	}
+}
